@@ -1,14 +1,14 @@
 {
-  "name": "boilerplate_reactjs_simplified",
+  "name": "ds_web",
   "version": "1.0.0",
   "private": true,
   "license": "MIT",
   "author": "Éverton Toffanetto",
   "description": "This application is a simple boilerplate with robust lints and tests settings.",
-  "repository": "https://github.com/everton-dgn/react_webpack_simplified",
+  "repository": "https://github.com/everton-dgn/ds_web",
   "main": "./src/ui/index.js",
   "scripts": {
-    "dev": "env-cmd -f .env webpack serve --progress --config webpack/webpack.local.js",
+    "dev": "env-cmd -f .env.local webpack serve --progress --config webpack/webpack.local.js",
     "start": "env-cmd -f .env.prod webpack serve --open --config webpack/webpack.prod.js",
     "build": "env-cmd -f .env.prod webpack --config webpack/webpack.prod.js",
     "build:dev": "env-cmd -f .env.dev webpack --config webpack/webpack.dev.js",
@@ -19,7 +19,7 @@
     "test": "jest --maxWorkers=50% --passWithNoTests",
     "test:w": "jest --watch --maxWorkers=25% --passWithNoTests",
     "check-update": "yarn upgrade-interactive --latest",
-    "prepare": "husky install && chmod ug+x .husky/*",
+    "prepare": "husky install",
     "release": "semantic-release"
   },
   "husky": {

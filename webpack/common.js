@@ -7,6 +7,14 @@ const { DefinePlugin, EnvironmentPlugin } = require('webpack')
 const isDevelopment = process.env.ENVIRONMENT === 'DEV'
 const isProduction = process.env.ENVIRONMENT === 'PRD'
 
+const styledComponentsOptions = {
+  displayName: true,
+  fileName: false,
+  namespace: process.env.NAME_APPLICATTION,
+  sourceMap: true,
+  pure: true
+}
+
 module.exports = env => ({
   mode: env.mode,
   entry: './src/main/index',
@@ -30,7 +38,7 @@ module.exports = env => ({
   },
   resolve: {
     modules: ['src', 'node_modules'],
-    extensions: ['.ts', '.tsx', '.js', '.css']
+    extensions: ['.ts', '.tsx', '.js']
   },
   devServer: {
     headers: {
@@ -50,6 +58,14 @@ module.exports = env => ({
         test: /\.js$/,
         enforce: 'pre',
         use: ['source-map-loader']
+      },
+      {
+        test: /\.tsx?$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        options: {
+          plugins: [['babel-plugin-styled-components', styledComponentsOptions]]
+        }
       },
       {
         test: /\.tsx?$/,
