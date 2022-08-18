@@ -1,0 +1,9 @@
+.container {
+  align-items: center;
+  height: min-content;
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+}
