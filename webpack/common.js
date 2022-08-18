@@ -81,10 +81,6 @@ module.exports = env => ({
       {
         test: /\.(png|jpg|svg|gif)$/i,
         use: ['file-loader']
-      },
-      {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader']
       }
     ]
   },
