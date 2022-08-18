@@ -15,6 +15,7 @@ module.exports = {
     'src/ui/pages/index.tsx',
     'src/ui/components/index.tsx',
     'src/ui/components/templates/index.tsx',
+    'src/ui/theme/',
     'src/ui/globalStyles/',
     'src/ui/providers/',
     'src/ui/assets/',
@@ -27,8 +28,7 @@ module.exports = {
   roots: ['<rootDir>/src'],
   testRegex: '(/__tests__/.*|(\\.|/)(test))\\.tsx?$',
   moduleNameMapper: {
-    '^.+\\.svg$': '<rootDir>/src/testHelpers/mocks/svg.ts',
-    '^.+\\.css$': '<rootDir>/src/testHelpers/mocks/style.ts'
+    '^.+\\.svg$': '<rootDir>/src/testHelpers/mocks/svg.ts'
   },
   transform: {
     '^.+\\.tsx?$': [
