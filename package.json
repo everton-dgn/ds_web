@@ -13,6 +13,7 @@
     "build": "env-cmd -f .env.prod webpack --config webpack/webpack.prod.js",
     "build:dev": "env-cmd -f .env.dev webpack --config webpack/webpack.dev.js",
     "lint": "eslint src --ext ts,tsx --max-warnings=0",
+    "lint:css": "stylelint src/**/*.ts",
     "format": "prettier --write .",
     "check-format": "prettier --check .",
     "typecheck": "tsc --project tsconfig.json --noEmit",
@@ -29,7 +30,8 @@
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
-      "yarn lint"
+      "yarn lint",
+      "yarn lint:css"
     ]
   },
   "dependencies": {
