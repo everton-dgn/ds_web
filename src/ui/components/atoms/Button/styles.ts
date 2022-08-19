@@ -7,7 +7,8 @@ const SizesBtn = {
     height: min-content;
     font-size: ${T.fonts.sizes.caption[0]};
     padding: 12px;
-    font-weight: ${T.fonts.weight.extraBold};
+    font-weight: ${T.fonts.weights.extraBold};
+    max-width: 224px;
   `
 }
 
@@ -29,16 +30,19 @@ export const Container = styled.button<BtnProps>`
     align-items: center;
     justify-content: center;
     flex-wrap: nowrap;
-    border: 2px solid transparent;
-    text-shadow: 0 0 3px #00000099;
+    border: 1px solid transparent;
     transition: background-color 0.15s ease-in-out;
     width: 100%;
+    color: ${T.colors.white};
     ${!!color && ColorsBtn[color]};
     ${!!size && SizesBtn[size]}
+    ${fullWidth &&
+    css`
+      max-width: 100%;
+    `}
 
-    ${T.breakpoints.custom(480)} {
-      width: ${fullWidth ? '100%' : 'fit-content'};
-      min-width: ${fullWidth ? '300px' : 'inherit'};
+    ${T.breakpoints.tablet} {
+      width: 100%;
     }
 
     &:disabled,
@@ -49,24 +53,13 @@ export const Container = styled.button<BtnProps>`
     }
 
     &:focus {
-      border: 2px solid ${T.colors.white};
-      box-shadow: 0 0 0 2px #222;
+      border: 1px solid ${T.colors.white};
+      box-shadow: 0 0 0 1px ${T.colors.black};
     }
 
-    span {
-      color: ${T.colors.white};
-    }
-
-    svg + span {
-      margin-left: 10px;
-    }
-
-    svg {
-      width: 2rem;
-      min-width: 2rem;
-      height: 2rem;
-      min-height: 2rem;
-      color: ${T.colors.white};
+    &:active {
+      border: 1px solid transparent;
+      box-shadow: none;
     }
   `}
 `

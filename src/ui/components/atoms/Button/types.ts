@@ -1,13 +1,12 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react'
+import { ButtonHTMLAttributes } from 'react'
 
 export type SizeProps = 'medium'
 
 export type ColorProps = 'blue'
 
-export type BtnProps = {
-  icon?: ReactNode
+export type BtnProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   text?: string
   size: SizeProps
   color: ColorProps
   fullWidth?: boolean
-} & ButtonHTMLAttributes<HTMLButtonElement>
+}
