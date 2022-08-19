@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import T from 'ui/theme'
 
 export const Grid = styled.div`
   display: flex;
@@ -8,8 +7,4 @@ export const Grid = styled.div`
   flex-direction: column;
   width: 100%;
   grid-template-rows: 100vh;
-`
-
-export const Header = styled.header`
-  font-size: ${T.fonts.sizes.headline};
 `
