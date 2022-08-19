@@ -17,6 +17,13 @@ export const Container = styled.main`
   }
 `
 
+export const Form = styled.form`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+`
+
 export const WrapperInputs = styled.div`
   display: grid;
   grid-template-columns: 1fr;
