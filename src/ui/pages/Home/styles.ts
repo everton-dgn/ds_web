@@ -14,6 +14,6 @@ export const Container = styled.main`
   }
 
   svg {
-    fill: ${T.colors.primaryHover};
+    fill: ${T.colors.brandPure};
   }
 `

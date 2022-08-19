@@ -1,8 +1,8 @@
 import { ButtonHTMLAttributes, ReactNode } from 'react'
 
-export type SizeProps = 'small' | 'medium' | 'large' | 'xLarge'
+export type SizeProps = 'medium'
 
-export type ColorProps = 'gray' | 'blue' | 'red'
+export type ColorProps = 'blue'
 
 export type BtnProps = {
   icon?: ReactNode

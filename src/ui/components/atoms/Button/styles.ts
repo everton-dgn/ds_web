@@ -3,48 +3,20 @@ import T from 'ui/theme'
 import { BtnProps } from './types'
 
 const SizesBtn = {
-  small: css`
-    height: min-content;
-    font-size: ${T.fonts.sizes.xSmall};
-    padding: ${T.spacings.xSmall} ${T.spacings.small};
-  `,
   medium: css`
     height: min-content;
-    font-size: ${T.fonts.sizes.small};
-    padding: ${T.spacings.small} ${T.spacings.xLarge};
-  `,
-  large: css`
-    height: min-content;
-    font-size: ${T.fonts.sizes.small};
-    padding: ${T.spacings.medium} ${T.spacings.xxxLarge};
-  `,
-  xLarge: css`
-    height: min-content;
-    font-size: ${T.fonts.sizes.small};
-    padding: ${T.spacings.medium} ${T.spacings.xtreme};
+    font-size: ${T.fonts.sizes.caption[0]};
+    padding: 12px;
+    font-weight: ${T.fonts.extraBold};
   `
 }
 
 const ColorsBtn = {
-  gray: css`
-    background-color: ${T.colors.gray};
-
-    &:hover {
-      background-color: ${T.colors.grayHover};
-    }
-  `,
   blue: css`
-    background-color: ${T.colors.primary};
+    background-color: ${T.colors.brandDark};
 
     &:hover {
-      background-color: ${T.colors.primary};
-    }
-  `,
-  red: css`
-    background-color: ${T.colors.red};
-
-    &:hover {
-      background-color: ${T.colors.redHover};
+      background-color: ${T.colors.brandPure};
     }
   `
 }
@@ -52,8 +24,7 @@ const ColorsBtn = {
 export const Container = styled.button<BtnProps>`
   ${({ fullWidth, color, size }) => css`
     cursor: pointer;
-    border-radius: ${T.border.radius};
-    font-weight: 400;
+    border-radius: ${T.borderRadius.m};
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -74,11 +45,11 @@ export const Container = styled.button<BtnProps>`
     &:disabled:hover {
       opacity: 0.5;
       cursor: not-allowed;
-      background-color: ${T.colors.disabled};
+      background-color: ${T.colors.grey};
     }
 
     &:focus {
-      border: 2px solid #fff;
+      border: 2px solid ${T.colors.white};
       box-shadow: 0 0 0 2px #222;
     }
 

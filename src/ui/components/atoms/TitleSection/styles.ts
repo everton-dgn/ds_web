@@ -8,10 +8,10 @@ export const TitleSection = styled.h1`
   justify-content: center;
   padding: 0 20px;
   margin: 20px 0;
-  font-size: ${T.fonts.sizes.xLarge};
-  font-weight: ${T.fonts.normal};
+  font-size: ${T.fonts.sizes.caption[0]};
+  font-weight: ${T.fonts.medium};
 
   ${T.breakpoints.custom(800)} {
-    font-size: ${T.fonts.sizes.xxLarge};
+    font-size: ${T.fonts.sizes.caption[0]};
   }
 `

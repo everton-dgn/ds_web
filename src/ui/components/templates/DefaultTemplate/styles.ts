@@ -11,5 +11,5 @@ export const Grid = styled.div`
 `
 
 export const Header = styled.header`
-  font-size: ${T.fonts.sizes.xLarge};
+  font-size: ${T.fonts.sizes.headline[0]};
 `
