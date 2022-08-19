@@ -1,14 +1,13 @@
 export const fonts = {
   family:
-    "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
-  normal: 400,
-  bold: 500,
+    "'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+  regular: 400,
+  medium: 500,
+  extraBold: 800,
   sizes: {
-    xSmall: '1.2rem',
-    small: '1.4rem',
-    medium: '1.6rem',
-    Large: '2rem',
-    xLarge: '2.8rem',
-    xxLarge: '4rem'
+    headline: ['48px', '60px'],
+    paragraphHighlight: ['14px', '24px'],
+    paragraph: ['14px', '24px'],
+    caption: ['12px', '16px']
   }
 }

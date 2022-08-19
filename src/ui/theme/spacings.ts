@@ -1,11 +1,8 @@
 export const spacings = {
-  xxSmall: '4px',
-  xSmall: '8px',
-  small: '12px',
-  medium: '16px',
-  large: '20px',
-  xLarge: '24px',
-  xxLarge: '28px',
-  xxxLarge: '32px',
-  xtreme: '40px'
+  xs: '8px',
+  s: '16px',
+  m: '24px',
+  l: '32px',
+  xl: '40px',
+  xxl: '48px'
 }
