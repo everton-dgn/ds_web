@@ -5,7 +5,7 @@ import { ReactComponent as IconArrowUp } from 'ui/assets/icons/arrow_up.svg'
 const Home = () => {
   return (
     <S.Container>
-      <C.TitleSection title="Hello World!" />
+      <C.TitleSection title="Hello World!" as="h1" />
 
       <br />
 
