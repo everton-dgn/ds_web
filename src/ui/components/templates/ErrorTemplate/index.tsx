@@ -1,14 +1,12 @@
-import styles from './styles.module.css'
+import * as S from './styles'
 import { ErrorProps } from './types'
 
 const ErrorTemplate = ({ children }: ErrorProps) => {
   return (
-    <div className={styles.grid}>
-      <header className={styles.header} role="banner">
-        Template Error
-      </header>
+    <S.Grid>
+      <S.Header role="banner">Template Error</S.Header>
       <div>{children}</div>
-    </div>
+    </S.Grid>
   )
 }
 

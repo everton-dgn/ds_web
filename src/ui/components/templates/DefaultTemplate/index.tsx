@@ -1,16 +1,14 @@
 import { Outlet } from 'react-router-dom'
-import styles from './styles.module.css'
+import * as S from './styles'
 
 const DefaultTemplate = () => {
   return (
-    <div className={styles.grid}>
-      <header className={styles.header} role="banner">
-        Template Default
-      </header>
+    <S.Grid>
+      <S.Header role="banner">Template Default</S.Header>
       <div>
         <Outlet />
       </div>
-    </div>
+    </S.Grid>
   )
 }
 

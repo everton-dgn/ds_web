@@ -1,10 +1,13 @@
-import styles from './styles.module.css'
+import { useSetPageTitle } from 'hooks'
+import * as S from './styles'
 
 const Error = () => {
+  useSetPageTitle({ pageTitle: 'Error Page' })
+
   return (
-    <main className={styles.container} role="main">
-      <h1 className={styles.title}>Page not found!</h1>
-    </main>
+    <S.Container role="main">
+      <S.Title>Page not found!</S.Title>
+    </S.Container>
   )
 }
 
