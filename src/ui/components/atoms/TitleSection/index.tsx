@@ -1,8 +1,8 @@
+import * as S from './styles'
 import { TitleProps } from './types'
-import styles from './styles.module.css'
 
-const TitleSection = ({ title }: TitleProps) => (
-  <h1 className={styles.title}>{title}</h1>
+const TitleSection = ({ title, as }: TitleProps) => (
+  <S.TitleSection as={as}>{title}</S.TitleSection>
 )
 
 export default TitleSection
