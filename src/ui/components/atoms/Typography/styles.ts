@@ -6,14 +6,17 @@ const typography = {
   headline: css`
     font-size: ${T.fonts.sizes.headline};
     font-weight: ${T.fonts.weight.medium};
+    line-height: 29px;
   `,
   paragraph: css`
     font-size: ${T.fonts.sizes.paragraph};
     font-weight: ${T.fonts.weight.regular};
+    line-height: 17px;
   `,
   caption: css`
     font-size: ${T.fonts.sizes.caption};
     font-weight: ${T.fonts.weight.regular};
+    line-height: 16px;
   `
 }
 
