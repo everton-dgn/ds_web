@@ -7,7 +7,7 @@ const SizesBtn = {
     height: min-content;
     font-size: ${T.fonts.sizes.caption[0]};
     padding: 12px;
-    font-weight: ${T.fonts.extraBold};
+    font-weight: ${T.fonts.weight.extraBold};
   `
 }
 
