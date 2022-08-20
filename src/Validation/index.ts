@@ -11,7 +11,7 @@ export const validator = (value: string) => ({
   },
 
   min(number: number, msg?: string) {
-    if (Number(value) >= number) {
+    if (Number(value) < number) {
       this.isValid = false
       this.error.push(msg || `Mínimo de ${number} caracteres`)
     }
@@ -19,7 +19,7 @@ export const validator = (value: string) => ({
   },
 
   max(number: number, msg?: string) {
-    if (Number(value) <= number) {
+    if (Number(value) > number) {
       this.isValid = false
       this.error.push(msg || `Máximo de ${number} caracteres`)
     }
