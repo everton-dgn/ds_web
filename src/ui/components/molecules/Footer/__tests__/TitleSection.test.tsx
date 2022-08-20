@@ -1,10 +1,10 @@
 import { screen } from '@testing-library/react'
 import { renderWithProviders } from 'testHelpers/providers'
-import Typography from '..'
+import Footer from '..'
 
-describe('[Component] TitleSection', () => {
+describe('[Component] Footer', () => {
   it('should render the heading', () => {
-    renderWithProviders(<Typography text="Título de Exemplo" type="caption" />)
+    renderWithProviders(<Footer text="Título de Exemplo" />)
     const h1 = screen.getByRole('heading', { name: 'Título de Exemplo' })
     expect(h1).toBeInTheDocument()
   })
