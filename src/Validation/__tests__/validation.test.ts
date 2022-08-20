@@ -26,4 +26,14 @@ describe('[Validation] validator', () => {
     expect(sut('invalid_email@mail')).toEqual(['E-mail inválido'])
     expect(sut('valid_email@mail.com')).toEqual([])
   })
+
+  it('should return an array of error message for values invalid phone numbers when calling method phone', () => {
+    const sut = (phone: string) => validator(phone).phone().error
+    expect(sut('(00) 99123-8909')).toEqual(['Número inválido'])
+    expect(sut('(77) 99999-999')).toEqual(['Número inválido'])
+    expect(sut('')).toEqual(['Número inválido'])
+    expect(sut('(77) 99999-9999')).toEqual([])
+    expect(sut('(77) 99123-8909')).toEqual([])
+    expect(sut('(77) 98776-9000')).toEqual([])
+  })
 })
