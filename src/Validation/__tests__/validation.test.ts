@@ -27,7 +27,7 @@ describe('[Validation] validator', () => {
     expect(sut('valid_email@mail.com')).toEqual([])
   })
 
-  it('should return an array of error message for values invalid phone numbers when calling method phone', () => {
+  it('should return an array of error message for values invalid phone numbers when calling method "phone"', () => {
     const sut = (phone: string) => validator(phone).phone().error
     expect(sut('(00) 99123-8909')).toEqual(['Número inválido'])
     expect(sut('(77) 99999-999')).toEqual(['Número inválido'])
@@ -35,5 +35,17 @@ describe('[Validation] validator', () => {
     expect(sut('(77) 99999-9999')).toEqual([])
     expect(sut('(77) 99123-8909')).toEqual([])
     expect(sut('(77) 98776-9000')).toEqual([])
+  })
+
+  it('should return an array of error message for values invalid CPF numbers when calling method "cpf"', () => {
+    const sut = (cpf: string) => validator(cpf).cpf().error
+    expect(sut('001.815.650-64')).toEqual(['CPF inválido'])
+    expect(sut('000.000.000-00')).toEqual(['CPF inválido'])
+    expect(sut('444.444.444-44')).toEqual(['CPF inválido'])
+    expect(sut('444.222.222-22')).toEqual(['CPF inválido'])
+    expect(sut('801.815.650-6')).toEqual(['CPF inválido'])
+    expect(sut('')).toEqual(['CPF inválido'])
+    expect(sut('801.815.650-64')).toEqual([])
+    expect(sut('558.250.440-00')).toEqual([])
   })
 })
