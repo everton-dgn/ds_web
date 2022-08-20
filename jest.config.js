@@ -19,6 +19,7 @@ module.exports = {
     'src/ui/globalStyles/',
     'src/ui/providers/',
     'src/ui/assets/',
+    'src/Data/mask/index.ts',
     'src/tests/providers/',
     'src/types/',
     'src/testHelpers/',
