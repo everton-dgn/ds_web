@@ -19,4 +19,11 @@ describe('[Validation] validator', () => {
     expect(sut('2')).toEqual([])
     expect(sut('1')).toEqual([])
   })
+
+  it('should return an array of error message for emails in incorrect format when calling the method "email"', () => {
+    const sut = (email: string) => validator(email).email().error
+    expect(sut('invalid_email')).toEqual(['E-mail inválido'])
+    expect(sut('invalid_email@mail')).toEqual(['E-mail inválido'])
+    expect(sut('valid_email@mail.com')).toEqual([])
+  })
 })
