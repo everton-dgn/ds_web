@@ -32,7 +32,7 @@ const Home = () => {
     }
   }
 
-  const handleField = (e: FormEvent<HTMLInputElement>): void => {
+  const onSetField = (e: FormEvent<HTMLInputElement>): void => {
     handleChecksIfFieldsAreEmpty()
     const { name, value } = e.currentTarget
     setForm({ ...form, [name]: value })
@@ -70,11 +70,11 @@ const Home = () => {
         <S.WrapperInputs>
           <C.Input
             name="phone"
-            placeholder="(xx) 00000-0000"
+            placeholder="(XX) 90000-0000"
             label="Número do celular"
             error={formError.phone?.[0]}
             ref={refPhone}
-            onKeyUp={handleField}
+            onSetField={onSetField}
             maskType="phone"
           />
           <C.Input
@@ -83,7 +83,7 @@ const Home = () => {
             label="Seu CPF"
             error={formError.cpf?.[0]}
             ref={refCpf}
-            onKeyUp={handleField}
+            onSetField={onSetField}
             maskType="cpf"
           />
           <C.Input
@@ -93,7 +93,7 @@ const Home = () => {
             error={formError.email?.[0]}
             type="email"
             ref={refEmail}
-            onKeyUp={handleField}
+            onSetField={onSetField}
           />
         </S.WrapperInputs>
 

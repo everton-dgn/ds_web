@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
 `
 
-export const WrapperLabel = styled.span`
+export const Label = styled.label`
   display: flex;
   margin-bottom: 5px;
 `

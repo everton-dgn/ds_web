@@ -5,20 +5,21 @@ import * as S from './styles'
 import { InputProps } from './types'
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ type = 'text', label, error, maskType, ...props }, ref) => {
+  ({ type = 'text', label, error, maskType, onSetField, ...props }, ref) => {
     const handleFormat = useCallback(
       (e: FormEvent<HTMLInputElement>) => {
         mask(maskType, e)
+        onSetField(e)
       },
-      [maskType]
+      [maskType, onSetField]
     )
 
     return (
       <S.Wrapper>
         {label && (
-          <S.WrapperLabel>
+          <S.Label>
             <C.Typography text={label} type="paragraphHighlight" align="left" />
-          </S.WrapperLabel>
+          </S.Label>
         )}
         <S.Input
           ref={ref}
@@ -34,6 +35,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               type="caption"
               align="left"
               color="error"
+              role="alert"
             />
           )}
         </S.WrapperError>
