@@ -13,4 +13,5 @@ export type TypographyProps = {
   type: Typography
   align?: Align
   color?: Color
+  role?: string
 }
