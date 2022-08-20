@@ -1,7 +1,7 @@
 import { FormEvent } from 'react'
 import { MaskValueType } from 'ui/components/molecules/Input/types'
 
-export const maskPhone = (e: FormEvent<HTMLInputElement>) => {
+const maskPhone = (e: FormEvent<HTMLInputElement>) => {
   e.currentTarget.maxLength = 15
   let value = e.currentTarget.value
   value = value.replace(/\D/g, '')
@@ -10,7 +10,7 @@ export const maskPhone = (e: FormEvent<HTMLInputElement>) => {
   e.currentTarget.value = value
 }
 
-export const maskCpf = (e: FormEvent<HTMLInputElement>) => {
+const maskCpf = (e: FormEvent<HTMLInputElement>) => {
   e.currentTarget.maxLength = 14
   let value = e.currentTarget.value
   if (!value.match(/^(\d{3}).(\d{3}).(\d{3})-(\d{2})$/)) {
