@@ -1,10 +1,14 @@
 import { FormEvent, useRef, useState } from 'react'
 import { useSetPageTitle } from 'hooks'
+import { formHomeValidate } from 'Validation/formHomeValidate'
+import { FormErrorType, FormType } from './types'
 import * as S from './styles'
 import * as C from 'ui/components'
 import { ReactComponent as Logo } from 'ui/assets/images/logo.svg'
 
 const Home = () => {
+  const [form, setForm] = useState<FormType>({})
+  const [formError, setFormError] = useState<FormErrorType>({})
   const [disabledButton, setDisabledButton] = useState(true)
   useSetPageTitle({ pageTitle: 'Informe seus dados' })
   const refPhone = useRef<HTMLInputElement>(null)
@@ -28,15 +32,28 @@ const Home = () => {
     }
   }
 
+  const handleField = (e: FormEvent<HTMLInputElement>): void => {
+    handleChecksIfFieldsAreEmpty()
+    const { name, value } = e.currentTarget
+    setForm({ ...form, [name]: value })
+    setFormError({ ...formError, [name]: formHomeValidate(name, value) })
+  }
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-
     // eslint-disable-next-line no-console
     console.clear()
-    // eslint-disable-next-line no-console
-    console.log('Dados do Formulário:')
-    // eslint-disable-next-line no-console
-    console.log({ cpf: 3223232323 })
+    if (!Object.values(formError).filter(el => el.length).length) {
+      // eslint-disable-next-line no-console
+      console.log('Dados do Formulário:')
+      // eslint-disable-next-line no-console
+      console.log(form, formError)
+    } else {
+      // eslint-disable-next-line no-console
+      console.log('Dados Inválidos')
+      // eslint-disable-next-line no-console
+      console.log(formError)
+    }
   }
 
   return (
@@ -52,26 +69,31 @@ const Home = () => {
       <S.Form onSubmit={e => handleSubmit(e)}>
         <S.WrapperInputs>
           <C.Input
-            placeholder="(xx) 0000-0000"
+            name="phone"
+            placeholder="(xx) 00000-0000"
             label="Número do celular"
-            error={'Error'}
+            error={formError.phone?.[0]}
             ref={refPhone}
-            onChange={handleChecksIfFieldsAreEmpty}
+            onKeyUp={handleField}
+            maskType="phone"
           />
           <C.Input
+            name="cpf"
             placeholder="000.000.000-00"
             label="Seu CPF"
-            error={''}
+            error={formError.cpf?.[0]}
             ref={refCpf}
-            onChange={handleChecksIfFieldsAreEmpty}
+            onKeyUp={handleField}
+            maskType="cpf"
           />
           <C.Input
+            name="email"
             placeholder="email@mail.com"
             label="Seu e-mail"
-            error={'Error'}
+            error={formError.email?.[0]}
             type="email"
             ref={refEmail}
-            onChange={handleChecksIfFieldsAreEmpty}
+            onKeyUp={handleField}
           />
         </S.WrapperInputs>
 
