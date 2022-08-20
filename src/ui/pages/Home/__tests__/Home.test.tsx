@@ -51,7 +51,7 @@ describe('[Page] Home', () => {
     ).toBeDisabled()
   })
 
-  it('should show an error message for each input with error when filling in incorrect data and clicking the button "Próximo" and when filling in correctly the error message should disappear', async () => {
+  it('should show an error message for each input with error when filling in incorrect data and when filling in correctly the error message should disappear', async () => {
     renderWithProviders(<Home />)
 
     const fieldEmail = screen.getByPlaceholderText('email@mail.com')
