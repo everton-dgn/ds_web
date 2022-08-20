@@ -9,8 +9,6 @@ describe('[Template] Error', () => {
         <p data-testid="select_template">Test Template</p>
       </Error>
     )
-    const title = screen.getByRole('banner')
     expect(screen.getByTestId('select_template')).toBeInTheDocument()
-    expect(title).toHaveTextContent('Template Error')
   })
 })
