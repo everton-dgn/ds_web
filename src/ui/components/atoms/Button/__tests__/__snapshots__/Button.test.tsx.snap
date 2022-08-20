@@ -1,10 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Component] Button should render a small blue button with text 1`] = `
+exports[`[Component] Button should renderizar um snapshot 1`] = `
 .c0 {
   cursor: pointer;
   border-radius: 4px;
-  font-weight: 400;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -20,57 +19,45 @@ exports[`[Component] Button should render a small blue button with text 1`] = `
   -webkit-flex-wrap: nowrap;
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
-  border: 2px solid transparent;
-  text-shadow: 0 0 3px #00000099;
+  border: 1px solid transparent;
   -webkit-transition: background-color 0.15s ease-in-out;
   transition: background-color 0.15s ease-in-out;
   width: 100%;
-  background-color: var(--colors-primary);
+  color: #ffffff;
+  background-color: #002c7a;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
-  font-size: 1.2rem;
-  padding: 8px 12px;
+  font-size: 1;
+  padding: 12px;
+  font-weight: 800;
+  max-width: 224px;
 }
 
 .c0:hover {
-  background-color: var(--colors-primary);
+  background-color: #1e5bc6;
 }
 
 .c0:disabled,
 .c0:disabled:hover {
   opacity: 0.5;
   cursor: not-allowed;
-  background-color: var(--colors-disabled);
+  background-color: #d0d0d0;
 }
 
 .c0:focus {
-  border: 2px solid #fff;
-  box-shadow: 0 0 0 2px #222;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 0 1px #282828;
 }
 
-.c0 span {
-  color: var(--colors-white);
+.c0:active {
+  border: 1px solid transparent;
+  box-shadow: none;
 }
 
-.c0 svg + span {
-  margin-left: 10px;
-}
-
-.c0 svg {
-  width: 2rem;
-  min-width: 2rem;
-  height: 2rem;
-  min-height: 2rem;
-  color: var(--colors-white);
-}
-
-@media screen and (min-width:480px) {
+@media screen and (min-width:600px) {
   .c0 {
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    min-width: inherit;
+    width: 100%;
   }
 }
 
@@ -79,9 +66,7 @@ exports[`[Component] Button should render a small blue button with text 1`] = `
     class="c0"
     color="blue"
   >
-    <span>
-      Mais Informações
-    </span>
+    Mais Informações
   </button>
 </div>
 `;

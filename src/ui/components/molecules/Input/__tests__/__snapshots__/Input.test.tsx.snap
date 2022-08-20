@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Component] Input should render a snapshot 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  min-height: 16px;
+  margin-top: 8px;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  color: #282828;
+  height: 39px;
+  border-radius: 2px;
+  padding: 0 14px;
+  border: 1px solid #282828;
+  -webkit-transition: 0.1s linear;
+  transition: 0.1s linear;
+}
+
+.c1::-webkit-input-placeholder {
+  color: #d0d0d0;
+}
+
+.c1::-moz-placeholder {
+  color: #d0d0d0;
+}
+
+.c1:-ms-input-placeholder {
+  color: #d0d0d0;
+}
+
+.c1::placeholder {
+  color: #d0d0d0;
+}
+
+.c1:focus,
+.c1:active {
+  border: 1px solid #282828;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <input
+      class="c1"
+      name="searchRepositoriesInTheGithub"
+      placeholder="Nome de usuário"
+      type="text"
+    />
+    <span
+      class="c2"
+    />
+  </div>
+</div>
+`;
