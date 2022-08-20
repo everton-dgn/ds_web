@@ -10,7 +10,7 @@
 
 </div>
 
-<h1 align="center">Projeto ds_web</h1>
+<h1 align="center">Projeto DS Web</h1>
 
 <br />
 
