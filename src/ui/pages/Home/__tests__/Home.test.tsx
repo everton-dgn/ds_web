@@ -4,7 +4,6 @@ import { renderWithProviders } from 'testHelpers/providers'
 import Home from '..'
 
 describe('[Page] Home', () => {
-  afterEach(() => jest.clearAllMocks())
   const user = userEvent.setup({ delay: null })
 
   it('should render an svg', () => {
