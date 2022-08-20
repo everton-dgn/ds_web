@@ -12,4 +12,11 @@ describe('[Validation] validator', () => {
     expect(sut('8')).toEqual([])
     expect(sut('10')).toEqual([])
   })
+
+  it('should return an array of error message for values larger than the parameter passed to the "max" method when called', () => {
+    const sut = (value: string) => validator(value).max(2).error
+    expect(sut('5')).toEqual(['Máximo de 2 caracteres'])
+    expect(sut('2')).toEqual([])
+    expect(sut('1')).toEqual([])
+  })
 })
