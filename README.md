@@ -1,26 +1,22 @@
 <div align="center">
 
-<a href="./LICENSE">![GitHub](https://img.shields.io/github/license/everton-dgn/react_webpack_simplified?style=plastic)</a>
-![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=react-webpack-styled-components-redux-tlk-boilerplate&style=plastic)
-![GitHub repo size](https://img.shields.io/github/repo-size/everton-dgn/react_webpack_simplified?style=plastic)
-![GitHub Repo stars](https://img.shields.io/github/stars/everton-dgn/react_webpack_simplified?color=yellow&style=plastic)
-![GitHub Repo stars](https://img.shields.io/github/v/release/everton-dgn/react_webpack_simplified?color=orange&style=plastic)
-![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/everton-dgn/react_webpack_simplified?style=plastic)
+<a href="./LICENSE">![GitHub](https://img.shields.io/github/license/everton-dgn/ds_web?style=plastic)</a>
+![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=ds-web&style=plastic)
+![GitHub repo size](https://img.shields.io/github/repo-size/everton-dgn/ds_web?style=plastic)
+![GitHub Repo stars](https://img.shields.io/github/stars/everton-dgn/ds_web?color=yellow&style=plastic)
+![GitHub Repo stars](https://img.shields.io/github/v/release/everton-dgn/ds_web?color=orange&style=plastic)
+![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/everton-dgn/ds_web?style=plastic)
 ![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release&style=plastic)
 
 </div>
 
-<h1 align="center">Boilerplate Complete and updated with React.js, Webpack, Typescript, CSS Modules and Tests</h1>
+<h1 align="center">Projeto ds_web</h1>
 
 <br />
 
 # :memo: About the Project
 
-This application is a boilerplate for large or small systems, especially those that need of security and code quality.
-
-In the construction of the UI, the Atomic Design structure was chosen, organizing the global components into atoms, molecules, organisms and templates.
-
-In addition to being constantly updated, this project was configured in the smallest details to serve as a basis for professional projects that require standardized and easy-to-maintain code architecture and design.
+This application is a frontend job selection project
 
 ---
 
@@ -55,7 +51,7 @@ In addition to being constantly updated, this project was configured in the smal
 
 🔥 TypeScript
 
-✨ CSS Modules
+💅 Styled-Components
 
 🚩 Lints: Husky, ESlint, Commitlint, Lint-Staged, Prettier, EditorConfig and Typecheck
 
@@ -77,7 +73,11 @@ In addition to being constantly updated, this project was configured in the smal
 
 - [x] Atomic Design;
 
-- [x] 100% coverage in tests including: components, templates and pages;
+- [x] High coverage in tests including: components, templates and pages;
+
+- [x] Form validator;
+
+- [x] Custom mask for phone and CPF;
 
 <br />
 
@@ -98,7 +98,7 @@ In addition to being constantly updated, this project was configured in the smal
 ## Clone Repository
 
 ```bash
-git clone https://github.com/everton-dgn/react_webpack_simplified.git
+git clone https://github.com/everton-dgn/ds_web.git
 ```
 
 ## Install Dependencies
@@ -202,6 +202,18 @@ yarn release
     </C.Card>
     ...
     ```
+
+- To import style sheets that use styled-components, named imports were used for the same reason as before, thus:
+
+   ```jsx
+   import * as S from './styles'
+
+   ...
+   <S.Wrapper>
+     <S.Title />
+   </S.Wrapper>
+   ...
+   ```
 
 ---
 
