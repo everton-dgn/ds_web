@@ -67,7 +67,7 @@ describe('[Page] Home', () => {
     const errorMessages = screen.getAllByRole('alert')
 
     expect(screen.getAllByRole('alert')).toHaveLength(3)
-    expect(errorMessages[0]).toHaveTextContent(/Número inválido/i)
+    expect(errorMessages[0]).toHaveTextContent(/Mínimo de 11 caracteres/i)
     expect(errorMessages[1]).toHaveTextContent(/CPF inválido/i)
     expect(errorMessages[2]).toHaveTextContent(/E-mail inválido/i)
 

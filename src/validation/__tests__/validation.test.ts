@@ -7,16 +7,16 @@ describe('[Validation] validator', () => {
   })
 
   it('should return an array of error message for values less than the parameter passed to the "min" method when called', () => {
-    const sut = (value: string) => validator(value).min(8).error
-    expect(sut('5')).toEqual(['Mínimo de 8 caracteres'])
-    expect(sut('8')).toEqual([])
-    expect(sut('10')).toEqual([])
+    const sut = (value: string) => validator(value).min(3).error
+    expect(sut('5')).toEqual(['Mínimo de 3 caracteres'])
+    expect(sut('82')).toEqual(['Mínimo de 3 caracteres'])
+    expect(sut('103')).toEqual([])
   })
 
   it('should return an array of error message for values larger than the parameter passed to the "max" method when called', () => {
     const sut = (value: string) => validator(value).max(2).error
-    expect(sut('5')).toEqual(['Máximo de 2 caracteres'])
-    expect(sut('2')).toEqual([])
+    expect(sut('523')).toEqual(['Máximo de 2 caracteres'])
+    expect(sut('22')).toEqual([])
     expect(sut('1')).toEqual([])
   })
 

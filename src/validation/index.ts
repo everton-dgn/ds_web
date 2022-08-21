@@ -1,6 +1,9 @@
+import { formatNumber } from 'data/formatters'
+
 export const validator = (value: string) => ({
   isValid: true,
   error: [] as string[],
+  numberOfCharacters: formatNumber(value).length,
 
   required(msg?: string) {
     if (!value) {
@@ -11,7 +14,7 @@ export const validator = (value: string) => ({
   },
 
   min(number: number, msg?: string) {
-    if (Number(value) < number) {
+    if (this.numberOfCharacters < number) {
       this.isValid = false
       this.error.push(msg || `Mínimo de ${number} caracteres`)
     }
@@ -19,7 +22,7 @@ export const validator = (value: string) => ({
   },
 
   max(number: number, msg?: string) {
-    if (Number(value) > number) {
+    if (this.numberOfCharacters > number) {
       this.isValid = false
       this.error.push(msg || `Máximo de ${number} caracteres`)
     }
@@ -48,23 +51,23 @@ export const validator = (value: string) => ({
 
   cpf(msg?: string) {
     const isValidCpf = () => {
-      const cpf = () => value.replace(/[^\d]+/g, '')
-      const isAllNumberRepeat = !Array.from(cpf()).filter(e => e !== cpf()[0])
+      const cpf = formatNumber(value)
+      const isAllNumberRepeat = !Array.from(cpf).filter(e => e !== cpf[0])
         .length
-      if (cpf().length !== 11 || isAllNumberRepeat) return false
+      if (cpf.length !== 11 || isAllNumberRepeat) return false
       let soma = 0
       let resto
       for (let i = 1; i <= 9; i++)
-        soma = soma + parseInt(cpf().substring(i - 1, i)) * (11 - i)
+        soma = soma + parseInt(cpf.substring(i - 1, i)) * (11 - i)
       resto = (soma * 10) % 11
       if (resto === 10 || resto === 11) resto = 0
-      if (resto !== parseInt(cpf().substring(9, 10))) return false
+      if (resto !== parseInt(cpf.substring(9, 10))) return false
       soma = 0
       for (let i = 1; i <= 10; i++)
-        soma = soma + parseInt(cpf().substring(i - 1, i)) * (12 - i)
+        soma = soma + parseInt(cpf.substring(i - 1, i)) * (12 - i)
       resto = (soma * 10) % 11
       if (resto === 10 || resto === 11) resto = 0
-      if (resto !== parseInt(cpf().substring(10, 11))) return false
+      if (resto !== parseInt(cpf.substring(10, 11))) return false
       return true
     }
     if (!isValidCpf()) {
