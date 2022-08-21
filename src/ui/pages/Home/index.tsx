@@ -1,6 +1,6 @@
 import { FormEvent, useRef, useState } from 'react'
 import { useSetPageTitle } from 'hooks'
-import { formHomeValidate } from 'Validation/formHomeValidate'
+import { formHomeValidate } from 'validation/formHomeValidate'
 import { FormErrorType, FormType } from './types'
 import * as S from './styles'
 import * as C from 'ui/components'
