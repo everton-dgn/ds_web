@@ -1,4 +1,4 @@
-import { mask } from 'data/mask'
+import { mask } from 'data/masks'
 import { FormEvent, forwardRef, memo, useCallback } from 'react'
 import * as C from 'ui/components'
 import * as S from './styles'
@@ -8,7 +8,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ type = 'text', label, error, maskType, onSetField, ...props }, ref) => {
     const handleFormat = useCallback(
       (e: FormEvent<HTMLInputElement>) => {
-        mask(maskType, e)
+        maskType && mask(maskType, e)
         onSetField(e)
       },
       [maskType, onSetField]
