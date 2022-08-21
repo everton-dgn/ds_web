@@ -15,9 +15,9 @@ const Home = () => {
   const refCpf = useRef<HTMLInputElement>(null)
   const refEmail = useRef<HTMLInputElement>(null)
 
-  const phone = (): string | undefined => refPhone.current?.value
-  const cpf = (): string | undefined => refCpf.current?.value
-  const email = (): string | undefined => refEmail.current?.value
+  const phone = (): string => refPhone.current?.value || ''
+  const cpf = (): string => refCpf.current?.value || ''
+  const email = (): string => refEmail.current?.value || ''
 
   const ChecksIfFieldsAreEmpty = (): boolean => {
     return !(phone() && cpf() && email())
