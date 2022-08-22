@@ -15,9 +15,9 @@ const Home = () => {
   const refCpf = useRef<HTMLInputElement>(null)
   const refEmail = useRef<HTMLInputElement>(null)
 
-  const phone = (): string => refPhone.current?.value || ''
-  const cpf = (): string => refCpf.current?.value || ''
-  const email = (): string => refEmail.current?.value || ''
+  const phone = (): string | undefined => refPhone.current?.value
+  const cpf = (): string | undefined => refCpf.current?.value
+  const email = (): string | undefined => refEmail.current?.value
 
   const ChecksIfFieldsAreEmpty = (): boolean => {
     return !(phone() && cpf() && email())
@@ -43,16 +43,17 @@ const Home = () => {
     e.preventDefault()
     // eslint-disable-next-line no-console
     console.clear()
-    if (!Object.values(formError).filter(el => el.length).length) {
-      // eslint-disable-next-line no-console
-      console.log('Dados do Formulário:')
-      // eslint-disable-next-line no-console
-      console.log(form, formError)
-    } else {
+    const hasErrorInForm = Object.values(formError).flat().length
+    if (hasErrorInForm) {
       // eslint-disable-next-line no-console
       console.log('Dados Inválidos')
       // eslint-disable-next-line no-console
       console.log(formError)
+    } else {
+      // eslint-disable-next-line no-console
+      console.log('Dados do Formulário:')
+      // eslint-disable-next-line no-console
+      console.log(form)
     }
   }
 
