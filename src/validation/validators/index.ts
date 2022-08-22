@@ -1,0 +1,6 @@
+export * from './requiredField'
+export * from './minCharacters'
+export * from './maxCharacters'
+export * from './validateEmail'
+export * from './validateCpf'
+export * from './validatePhone'
