@@ -1,7 +1,7 @@
 import { maskPhone } from 'data/masks/typesOfMasks/phone'
 import { FormEvent } from 'react'
 
-export const mockedMaskPhone = (value: string) => {
+export const mockedMaskPhone = (value: string): string => {
   const event = {
     currentTarget: {
       value

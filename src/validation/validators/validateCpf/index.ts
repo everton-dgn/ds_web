@@ -1,6 +1,10 @@
 import { formatNumber } from 'data/formatters'
 
-export const validateCpf = (value: string, error: string[], msg?: string) => {
+export const validateCpf = (
+  value: string,
+  error: string[],
+  msg?: string
+): void => {
   const isValidCpf = () => {
     const cpf = formatNumber(value)
     const isAllNumberRepeat = !Array.from(cpf).filter(e => e !== cpf[0]).length

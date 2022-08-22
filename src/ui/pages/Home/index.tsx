@@ -1,7 +1,7 @@
 import { FormEvent, useCallback, useRef, useState } from 'react'
 import { useSetPageTitle } from 'hooks'
 import { formHomeValidate } from 'validation/formHomeValidate'
-import { FormErrorType, FormType } from './types'
+import { FieldsRef, FormErrorType, FormType } from './types'
 import * as S from './styles'
 import * as C from 'ui/components'
 import { ReactComponent as Logo } from 'ui/assets/images/logo.svg'
@@ -15,9 +15,9 @@ const Home = () => {
   const refCpf = useRef<HTMLInputElement>(null)
   const refEmail = useRef<HTMLInputElement>(null)
 
-  const phone = (): string | undefined => refPhone.current?.value
-  const cpf = (): string | undefined => refCpf.current?.value
-  const email = (): string | undefined => refEmail.current?.value
+  const phone = (): FieldsRef => refPhone.current?.value
+  const cpf = (): FieldsRef => refCpf.current?.value
+  const email = (): FieldsRef => refEmail.current?.value
 
   const ChecksIfFieldsAreEmpty = useCallback((): boolean => {
     return !(phone() && cpf() && email())
@@ -43,7 +43,7 @@ const Home = () => {
   )
 
   const handleSubmit = useCallback(
-    (e: FormEvent<HTMLFormElement>) => {
+    (e: FormEvent<HTMLFormElement>): void => {
       e.preventDefault()
       // eslint-disable-next-line no-console
       console.clear()

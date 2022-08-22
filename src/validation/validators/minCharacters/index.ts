@@ -4,7 +4,7 @@ export const minCharacters = (
   number: number,
   numberOfCharacters: number,
   msg?: string
-) => {
+): void => {
   if (numberOfCharacters < number) {
     error.push(msg || `Mínimo de ${number} caracteres`)
   }

@@ -9,3 +9,5 @@ export type FormErrorType = {
   cpf?: string
   email?: string
 }
+
+export type FieldsRef = string | undefined

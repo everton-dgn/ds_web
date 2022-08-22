@@ -7,7 +7,7 @@ import { InputProps } from './types'
 const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ type = 'text', label, error, maskType, onSetField, ...props }, ref) => {
     const handleFormat = useCallback(
-      (e: FormEvent<HTMLInputElement>) => {
+      (e: FormEvent<HTMLInputElement>): void => {
         maskType && mask(maskType, e)
         onSetField(e)
       },

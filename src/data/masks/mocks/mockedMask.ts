@@ -6,7 +6,7 @@ export const makeSut = (
   maskType: MaskValueType,
   value: string,
   maxLength?: number
-) => {
+): string | undefined => {
   const event = {
     currentTarget: {
       value,
