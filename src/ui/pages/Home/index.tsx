@@ -1,4 +1,4 @@
-import { FormEvent, useRef, useState } from 'react'
+import { FormEvent, useCallback, useRef, useState } from 'react'
 import { useSetPageTitle } from 'hooks'
 import { formHomeValidate } from 'validation/formHomeValidate'
 import { FormErrorType, FormType } from './types'
@@ -19,43 +19,49 @@ const Home = () => {
   const cpf = (): string | undefined => refCpf.current?.value
   const email = (): string | undefined => refEmail.current?.value
 
-  const ChecksIfFieldsAreEmpty = (): boolean => {
+  const ChecksIfFieldsAreEmpty = useCallback((): boolean => {
     return !(phone() && cpf() && email())
-  }
+  }, [])
 
-  const handleChecksIfFieldsAreEmpty = (): void => {
+  const handleChecksIfFieldsAreEmpty = useCallback((): void => {
     if (!ChecksIfFieldsAreEmpty() && disabledButton) {
       setDisabledButton(false)
     }
     if (ChecksIfFieldsAreEmpty() && !disabledButton) {
       setDisabledButton(true)
     }
-  }
+  }, [ChecksIfFieldsAreEmpty, disabledButton])
 
-  const onSetField = (e: FormEvent<HTMLInputElement>): void => {
-    handleChecksIfFieldsAreEmpty()
-    const { name, value } = e.currentTarget
-    setForm({ ...form, [name]: value })
-    setFormError({ ...formError, [name]: formHomeValidate(name, value) })
-  }
+  const onSetField = useCallback(
+    (e: FormEvent<HTMLInputElement>): void => {
+      handleChecksIfFieldsAreEmpty()
+      const { name, value } = e.currentTarget
+      setForm({ ...form, [name]: value })
+      setFormError({ ...formError, [name]: formHomeValidate(name, value) })
+    },
+    [form, formError, handleChecksIfFieldsAreEmpty]
+  )
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    // eslint-disable-next-line no-console
-    console.clear()
-    const hasErrorInForm = Object.values(formError).flat().length
-    if (hasErrorInForm) {
+  const handleSubmit = useCallback(
+    (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault()
       // eslint-disable-next-line no-console
-      console.log('Dados Inválidos')
-      // eslint-disable-next-line no-console
-      console.log(formError)
-    } else {
-      // eslint-disable-next-line no-console
-      console.log('Dados do Formulário:')
-      // eslint-disable-next-line no-console
-      console.log(form)
-    }
-  }
+      console.clear()
+      const hasErrorInForm = Object.values(formError).flat().length
+      if (hasErrorInForm) {
+        // eslint-disable-next-line no-console
+        console.log('Dados Inválidos')
+        // eslint-disable-next-line no-console
+        console.log(formError)
+      } else {
+        // eslint-disable-next-line no-console
+        console.log('Dados do Formulário:')
+        // eslint-disable-next-line no-console
+        console.log(form)
+      }
+    },
+    [form, formError]
+  )
 
   return (
     <S.Container>
