@@ -93,6 +93,7 @@ const Home = () => {
             error={formError.email?.[0]}
             ref={refEmail}
             onSetField={onSetField}
+            maxLength={60}
           />
         </S.WrapperInputs>
 
