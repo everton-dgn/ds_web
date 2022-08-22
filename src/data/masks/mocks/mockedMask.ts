@@ -1,5 +1,5 @@
-import { mask } from 'data/masks/index'
 import { FormEvent } from 'react'
+import { mask } from 'data/masks'
 import { MaskValueType } from 'ui/components/molecules/Input/types'
 
 export const makeSut = (
