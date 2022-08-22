@@ -1,4 +1,4 @@
-import { validator } from '..'
+import { validator } from '../mainValidator'
 
 export const formHomeValidate = (name: string, value: string) => {
   const error: Record<string, string[]> = {
