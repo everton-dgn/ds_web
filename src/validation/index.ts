@@ -1,29 +1,31 @@
 import { formatNumber } from 'data/formatters'
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+let isValid = true
+const numberOfCharacters = (value: string): number => formatNumber(value).length
+
 export const validator = (value: string) => ({
-  isValid: true,
   error: [] as string[],
-  numberOfCharacters: formatNumber(value).length,
 
   required(msg?: string) {
     if (!value) {
-      this.isValid = false
+      isValid = false
       this.error.push(msg || 'Preenchimento obrigatório')
     }
     return this
   },
 
   min(number: number, msg?: string) {
-    if (this.numberOfCharacters < number) {
-      this.isValid = false
+    if (numberOfCharacters(value) < number) {
+      isValid = false
       this.error.push(msg || `Mínimo de ${number} caracteres`)
     }
     return this
   },
 
   max(number: number, msg?: string) {
-    if (this.numberOfCharacters > number) {
-      this.isValid = false
+    if (numberOfCharacters(value) > number) {
+      isValid = false
       this.error.push(msg || `Máximo de ${number} caracteres`)
     }
     return this
@@ -34,7 +36,7 @@ export const validator = (value: string) => ({
       // eslint-disable-next-line no-control-regex
       /^((([a-z]|\d|[!#$%&'*+\-/=?^_`{|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#$%&'*+\-/=?^_`{|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))$/i
     if (!value.match(email)) {
-      this.isValid = false
+      isValid = false
       this.error.push(msg || 'E-mail inválido')
     }
     return this
@@ -43,7 +45,7 @@ export const validator = (value: string) => ({
   phone(msg?: string) {
     const phone = /^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}-[0-9]{4}$/
     if (!value.match(phone)) {
-      this.isValid = false
+      isValid = false
       this.error.push(msg || 'Número inválido')
     }
     return this
@@ -71,7 +73,7 @@ export const validator = (value: string) => ({
       return true
     }
     if (!isValidCpf()) {
-      this.isValid = false
+      isValid = false
       this.error.push(msg || 'CPF inválido')
     }
     return this

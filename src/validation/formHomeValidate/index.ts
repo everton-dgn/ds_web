@@ -2,9 +2,9 @@ import { validator } from '..'
 
 export const formHomeValidate = (name: string, value: string) => {
   const error: Record<string, string[]> = {
-    phone: validator(value).min(11).phone().required().error,
-    cpf: validator(value).cpf().required().error,
-    email: validator(value).email().required().error
+    phone: validator(value).required().min(11).phone().error,
+    cpf: validator(value).required().cpf().error,
+    email: validator(value).required().email().error
   }
   return error[name]
 }
