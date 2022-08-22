@@ -91,7 +91,6 @@ const Home = () => {
             placeholder="email@mail.com"
             label="Seu e-mail"
             error={formError.email?.[0]}
-            type="email"
             ref={refEmail}
             onSetField={onSetField}
           />
