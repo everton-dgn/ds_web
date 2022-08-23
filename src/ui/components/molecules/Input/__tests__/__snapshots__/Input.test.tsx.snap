@@ -73,5 +73,8 @@ exports[`[Component] Input should render a snapshot 1`] = `
       class="c2"
     />
   </div>
+  <div
+    class="Toastify"
+  />
 </div>
 `;

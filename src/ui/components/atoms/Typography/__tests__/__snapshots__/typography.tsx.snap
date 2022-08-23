@@ -28,5 +28,8 @@ exports[`[Component] Typography should render a snapshot 1`] = `
   >
     Text of example
   </h1>
+  <div
+    class="Toastify"
+  />
 </div>
 `;

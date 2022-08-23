@@ -68,5 +68,8 @@ exports[`[Component] Button should renderizar um snapshot 1`] = `
   >
     Mais Informações
   </button>
+  <div
+    class="Toastify"
+  />
 </div>
 `;
