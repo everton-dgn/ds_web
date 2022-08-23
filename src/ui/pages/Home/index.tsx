@@ -1,3 +1,4 @@
+import { errorToastAdapter, successToastAdapter } from 'data/toastAdapter'
 import { FormEvent, useCallback, useRef, useState } from 'react'
 import { useSetPageTitle } from 'hooks'
 import { formHomeValidate } from 'validation/formHomeValidate'
@@ -45,19 +46,17 @@ const Home = () => {
   const handleSubmit = useCallback(
     (e: FormEvent<HTMLFormElement>): void => {
       e.preventDefault()
-      // eslint-disable-next-line no-console
-      console.clear()
       const hasErrorInForm = Object.values(formError).flat().length
       if (hasErrorInForm) {
-        // eslint-disable-next-line no-console
-        console.log('Dados Inválidos')
-        // eslint-disable-next-line no-console
-        console.log(formError)
+        errorToastAdapter('Dados Inválidos! Corrija os erros para continuar.')
       } else {
-        // eslint-disable-next-line no-console
-        console.log('Dados do Formulário:')
-        // eslint-disable-next-line no-console
-        console.log(form)
+        successToastAdapter(
+          `Informações Validadas com Sucesso!
+          Celular: ${form.phone},
+          CPF: ${form.cpf},
+          E-mail: ${form.email}
+          `
+        )
       }
     },
     [form, formError]
