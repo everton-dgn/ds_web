@@ -1,4 +1,4 @@
-import { validator } from '../mainValidator'
+import { validator } from '..'
 
 describe('[Validation] validator', () => {
   it('should return an array of error message for values false when calling "require" method', () => {

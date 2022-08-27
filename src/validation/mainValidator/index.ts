@@ -6,7 +6,7 @@ import {
   validateEmail,
   validateCpf,
   validatePhone
-} from './validators'
+} from '../validators'
 
 export const validator = (value: string) => ({
   error: [] as string[],
